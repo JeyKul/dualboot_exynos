@@ -41,5 +41,14 @@
 ### - ```mkpart vendor2 ext4 16384 17716```
 ### - ```mkpart product2 ext4 17716 18681```
 
+### - now to the funny part. making userdata partitions. 
+### - in my case i took the data thats left soooo (18681 - 249000) / 2 = 115160 for userdata 1 and 115158 for userdata 2
+
+### - ```mkpart userdata ext4 18681 1151560```
+### - ```mkpart userdata2 ext4 1151560 249000```
+
 ### - if you are done with that, restart into your recovery once.
 ### - repeat adb push adb shell chmod parted thing
+
+### - now you should see the new partitions
+now we need to name them, because parted doesnt do that by itself
