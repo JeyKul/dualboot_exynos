@@ -63,7 +63,6 @@
 ### - after that you can continue by entering ```mkfs.f2fs /dev/block/by-name/userdata2``` IF your rom supports F2FS /data.
 ### - if not use ```mke2fs```: ```mke2fs -t ext4 -F /dev/block/by-name/[partitions]```
 
-
 ### - Once you are done with formatting your partitions accordingly, we have to make a zip to dynamically name the partitions, for the dualboot.
 ### - Download this REPO, and open the "rename" folder.
 ### - Push parted once more and get the partition list. this is important, because we need the partition numbers from the NEW partitions.
@@ -73,5 +72,7 @@
 ### - Make an 2nd zip where you rename the partitons accorindly to boot the other OS. dont forget to replace the imgs of that rom in there.
 ### - If that is all done you can try it. You may have to troubleshoot some stuff, but i am sure if you followed this tutorial this far that you will know how to do that. 
 ### - Have fun, if you have questions open an issue and i am sure that we can find an awnser.
+
+### - to flash a rom flash a rename zip, reboot to recovery, flash rom, flash rename zip, reboot to recovery, flash rom!
 
 # GOOD LUCK
