@@ -1,0 +1,23 @@
+set_progress(0.00);
+ui_print("Dualboot on 982X");
+ui_print("Created & found by JeyKul");
+set_progress(0.1);
+ifelse(is_mounted("/system"), unmount("/system"));
+ifelse(is_mounted("/odm"), unmount("/odm"));
+ifelse(is_mounted("/vendor"), unmount("/vendor"));
+ifelse(is_mounted("/cache"), unmount("/cache"));
+ifelse(is_mounted("/omr"), unmount("/omr"));
+ifelse(is_mounted("/userdata"), unmount("/data"));
+
+set_progress(0.3);
+package_extract_dir("fun", "/tmp");
+set_perm_recursive(0, 0, 0755, 0755, "/tmp");
+ui_print("Executing repartition script");
+run_program("/tmp/worker.sh");
+
+set_progress(0.7);
+ui_print("Finished! ");
+ui_print("Reboot and your ROM should boot.");
+ui_print("Partitions should also be renamed. you can use them in TWRP after a reboot.");
+
+

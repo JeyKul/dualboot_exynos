@@ -51,4 +51,27 @@
 ### - repeat adb push adb shell chmod parted thing
 
 ### - now you should see the new partitions
-now we need to name them, because parted doesnt do that by itself
+### - now we need to name them, because parted doesnt do that by itself
+
+### - it works like this: ```name [partitionnumber] [name]```
+### - for example: ```name 25 system```, ```name 26 system2``` and so on
+### - once this is done, reboot to recovery.
+### - now we have to format most partitions by outselves. depending on what phone you have we have to format partition different formats.
+### - we can go to adb shell once more. try to ```ls /dev/block/by-name```, to maybe see your new partitions.
+### - if your TWRP has been made normal, we can just start by going to "wipe" and press format data.
+### - Then you can use data partition already.
+### - after that you can continue by entering ```mkfs.f2fs /dev/block/by-name/userdata2``` IF your rom supports F2FS /data.
+### - if not use ```mke2fs```: ```mke2fs -t ext4 -F /dev/block/by-name/[partitions]```
+
+
+### - Once you are done with formatting your partitions accordingly, we have to make a zip to dynamically name the partitions, for the dualboot.
+### - Download this REPO, and open the "rename" folder.
+### - Push parted once more and get the partition list. this is important, because we need the partition numbers from the NEW partitions.
+### - Go into the folder rename and open the file worker.sh
+### - Correct everything needed. Add Boot.img Dtb.img and Dtbo.img to that same folder.
+### - Compress the contents INSIDE the folder into a zip.
+### - Make an 2nd zip where you rename the partitons accorindly to boot the other OS. dont forget to replace the imgs of that rom in there.
+### - If that is all done you can try it. You may have to troubleshoot some stuff, but i am sure if you followed this tutorial this far that you will know how to do that. 
+### - Have fun, if you have questions open an issue and i am sure that we can find an awnser.
+
+# GOOD LUCK
